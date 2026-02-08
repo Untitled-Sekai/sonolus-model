@@ -1,7 +1,9 @@
 # Base modules
 from .base import (
+    SonolusServerInfo,
     SonolusResourceLocator,
     Srl,
+    SonolusConfiguration,
     SonolusItemButtonType,
     ServerInfoAuthenticationButton,
     ServerInfoItemButton,
