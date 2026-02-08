@@ -10,6 +10,7 @@ from .icon import SonolusIcon
 class SonolusResourceLocator(BaseModel):
     # https://wiki.sonolus.com/ja/custom-server-specs/misc/srl
     # type Srl = { hash?: string | null, url?: string | null }
+    model_config = {"exclude_none": True}
     
     hash: Optional[str] = None
     url: Optional[str] = None
@@ -41,6 +42,8 @@ class ServerInfoAuthenticationButton(BaseModel):
 
 class ServerInfoItemButton(BaseModel):
     # アイテムボタン
+    model_config = {"exclude_none": True}
+    
     type: SonolusItemButtonType
     title: Optional[Union[SonolusText, str]] = None
     icon: Optional[Union[SonolusIcon, str]] = None
@@ -70,6 +73,7 @@ class SonolusConfiguration(BaseModel):
 class SonolusServerInfo(BaseModel):
     # サーバーの情報を定義
     # Sonolusのサーバーに入ったときの最初のメニュー
+    model_config = {"exclude_none": True}
     
     title: str
     description: Optional[str] = None

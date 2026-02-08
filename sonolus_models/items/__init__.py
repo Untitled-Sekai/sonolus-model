@@ -18,6 +18,7 @@ class BaseItem(BaseModel):
     source: Optional[str] = None
     title: str
     author: str
+    description: str
     tags: List[Tag] = []
 
 class PackBaseItem(BaseItem):
@@ -26,6 +27,7 @@ class PackBaseItem(BaseItem):
     source: Optional[SRL] = None
     title: LocalationText
     author: LocalationText
+    description: LocalationText
     tags: List[Tag] = []
 
 class ItemType(str, Enum):
