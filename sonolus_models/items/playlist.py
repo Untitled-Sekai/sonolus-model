@@ -3,6 +3,8 @@ from typing import Optional, List, Any
 from ..base import SonolusResourceLocator
 from ..common import Tag
 from ..items import BaseItem, PackBaseItem, LocalationText
+from .level import LevelItem
+from .user import UserItem
 
 SRL = SonolusResourceLocator
 
@@ -10,7 +12,8 @@ class PlaylistItem(BaseItem):
     """PlaylistItemはプレイリストの情報を提供"""
     version: int = 1
     subtitle: str
-    levels: List[Any] = []  # LevelItemを参照、後で修正可能
+    authorUser: Optional[UserItem] = None
+    levels: List[LevelItem] = []
     thumbnail: Optional[SRL] = None
 
 class PlaylistPackItem(PackBaseItem):

@@ -7,6 +7,7 @@ from ..items.skin import SkinItem
 from ..items.background import BackgroundItem
 from ..items.effect import EffectItem
 from ..items.particle import ParticleItem
+from .user import UserItem
 
 SRL = SonolusResourceLocator
 
@@ -14,6 +15,7 @@ class EngineItem(BaseItem):
     """EngineItemはエンジンの情報を提供"""
     version: int = 13
     subtitle: str
+    authorUser: Optional[UserItem] = None
     skin: SkinItem  # エンジンで使用するデフォルトスキン
     background: BackgroundItem  # エンジンで使用するデフォルト背景
     effect: EffectItem  # エンジンで使用するデフォルトエフェクト

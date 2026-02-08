@@ -12,3 +12,4 @@ class ServerItemList(BaseModel):
     pageCount: int = Field(..., description="ページ数")
     items: List[T] = Field(default_factory=list, description="アイテムのリスト") # 一ページ20個まで
     searches: Optional[List[ServerForm]] = Field(None, description="検索フォームのリスト")
+    quickSearchValues: Optional[str] = Field(None, description="クイックサーチの値")

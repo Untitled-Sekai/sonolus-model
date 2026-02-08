@@ -4,6 +4,7 @@ from ..base import SonolusResourceLocator
 from ..common import Tag
 from ..items import BaseItem, PackBaseItem
 from ..items import LocalationText
+from .user import UserItem
 
 SRL = SonolusResourceLocator
 
@@ -11,6 +12,7 @@ class SkinItem(BaseItem):
     """SkinItemはスキンの情報を提供"""
     version: int = 4
     subtitle: str
+    authorUser: Optional[UserItem] = None
     thumbnail: SRL
     data: SRL
     texture: SRL

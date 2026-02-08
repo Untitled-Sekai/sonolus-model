@@ -19,7 +19,6 @@ class BaseItem(BaseModel):
     title: str
     author: str
     tags: List[Tag] = []
-    description: str = ""
 
 class PackBaseItem(BaseItem):
     """パック内の全てのアイテムの基底クラス"""
@@ -28,17 +27,23 @@ class PackBaseItem(BaseItem):
     title: LocalationText
     author: LocalationText
     tags: List[Tag] = []
-    description: LocalationText = LocalationText()
 
 class ItemType(str, Enum):
-    background = "backgrounds"
-    effect = "effects"
-    engine = "engines"
-    level = "levels"
-    particle = "particles"
-    post = "posts"
-    replay = "replays"
-    skin = "skins"
+    """ItemType定義
+    type ItemType = 'post' | 'playlist' | 'level' | 'skin' | 'background' 
+                  | 'effect' | 'particle' | 'engine' | 'replay' | 'room' | 'user'
+    """
+    post = "post"
+    playlist = "playlist"
+    level = "level"
+    skin = "skin"
+    background = "background"
+    effect = "effect"
+    particle = "particle"
+    engine = "engine"
+    replay = "replay"
+    room = "room"
+    user = "user"
     
 __all__ = [
     "BaseItem",
@@ -52,6 +57,9 @@ __all__ = [
     "ParticleItem",
     "PostItem",
     "ReplayItem",
+    "PlaylistItem",
+    "RoomItem",
+    "UserItem",
 ]
 
 from .background import BackgroundItem
@@ -62,3 +70,6 @@ from .particle import ParticleItem
 from .post import PostItem
 from .replay import ReplayItem
 from .skin import SkinItem
+from .playlist import PlaylistItem
+from .room import RoomItem
+from .user import UserItem

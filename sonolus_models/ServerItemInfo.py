@@ -12,4 +12,5 @@ class ServerItemInfo(BaseModel):
     creates: List[ServerForm] = Field(default_factory=list)
     searches: List[ServerForm] = Field(default_factory=list)
     sections: List[ServerItemSection] = Field(default_factory=list) 
+    quickSearchValues: Optional[str] = None
     banner: Optional[SonolusResourceLocator] = None

@@ -1,35 +1,65 @@
 # ここでベースとなるモデルの定義
 
 from pydantic import BaseModel, Field
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any, Union, Literal
 from enum import Enum
 from .ServerOption import ServerOption
+from .text import SonolusText
+from .icon import SonolusIcon
 
 class SonolusResourceLocator(BaseModel):
     # https://wiki.sonolus.com/ja/custom-server-specs/misc/srl
+    # type Srl = { hash?: string | null, url?: string | null }
     
-    hash: str
-    url: str
+    hash: Optional[str] = None
+    url: Optional[str] = None
+
+# エイリアス
+Srl = SonolusResourceLocator
 
 
-class SonolusButtonType(str, Enum):
-    # https://wiki.sonolus.com/ja/custom-server-specs/endpoints/get-sonolus-info
-    
-    AUTHENTICATION = "authentication"
+class SonolusItemButtonType(str, Enum):
+    # ServerInfoItemButtonで使用可能なtype
+    ROOM = "room"
     POST = "post"
+    PLAYLIST = "playlist"
     LEVEL = "level"
+    REPLAY = "replay"
     SKIN = "skin"
     BACKGROUND = "background"
     EFFECT = "effect"
     PARTICLE = "particle"
     ENGINE = "engine"
+    USER = "user"
     CONFIGURATION = "configuration"
 
+
+class ServerInfoAuthenticationButton(BaseModel):
+    # 認証ボタン
+    type: Literal["authentication"]
+
+
+class ServerInfoItemButton(BaseModel):
+    # アイテムボタン
+    type: SonolusItemButtonType
+    title: Optional[Union[SonolusText, str]] = None
+    icon: Optional[Union[SonolusIcon, str]] = None
+    badgeCount: Optional[int] = None
+    infoType: Optional[str] = None
+    itemName: Optional[str] = None
+
+
+class ServerInfoConfigurationButton(BaseModel):
+    # 設定ボタン
+    type: Literal["configuration"]
+
     
-class SonolusButton(BaseModel):
-    # ボタンの定義
-    
-    type: SonolusButtonType
+# ボタンの定義（Union型）
+SonolusButton = Union[
+    ServerInfoAuthenticationButton,
+    ServerInfoItemButton,
+    ServerInfoConfigurationButton
+]
 
     
 class SonolusConfiguration(BaseModel):
