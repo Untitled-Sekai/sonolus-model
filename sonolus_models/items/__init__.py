@@ -33,17 +33,17 @@ class ItemType(str, Enum):
     type ItemType = 'post' | 'playlist' | 'level' | 'skin' | 'background' 
                   | 'effect' | 'particle' | 'engine' | 'replay' | 'room' | 'user'
     """
-    post = "post"
-    playlist = "playlist"
-    level = "level"
-    skin = "skin"
-    background = "background"
-    effect = "effect"
-    particle = "particle"
-    engine = "engine"
-    replay = "replay"
-    room = "room"
-    user = "user"
+    post = "posts"
+    playlist = "playlists"
+    level = "levels"
+    skin = "skins"
+    background = "backgrounds"
+    effect = "effects"
+    particle = "particles"
+    engine = "engines"
+    replay = "replays"
+    room = "rooms"
+    user = "users"
     
 __all__ = [
     "BaseItem",
