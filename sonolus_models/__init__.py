@@ -136,6 +136,7 @@ from .sections import (
     ParticleSection,
     EngineSection,
     ReplaySection,
+    UserSection,
     ServerItemSection,
 )
 
@@ -177,6 +178,10 @@ from .Response.ServerSubmitItemCommunityActionResponse import (
 
 from .Response.ServerSubmitLevelResultResponse import (
     ServerSubmitLevelResultResponse,
+)
+
+from .Response.ServerLevelResultInfo import (
+    ServerLevelResultInfo,
 )
 
 # Sonolus types module
@@ -294,6 +299,7 @@ __all__ = [
     "ParticleSection",
     "EngineSection",
     "ReplaySection",
+    "UserSection",
     "ServerItemSection",
     
     # Request
@@ -313,5 +319,8 @@ __all__ = [
     
     # Sonolus types module
     "sonolus_types",
+
+    
+    "ServerLevelResultInfo",
 ]
 

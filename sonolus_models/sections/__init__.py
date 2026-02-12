@@ -9,6 +9,7 @@ from ..items.effect import EffectItem
 from ..items.particle import ParticleItem
 from ..items.engine import EngineItem
 from ..items.replay import ReplayItem
+from ..items.user import UserItem
 
 # 各アイテムタイプ用のセクション定義
 class PostSection(ServerItemSectionTyped[PostItem]):
@@ -38,6 +39,9 @@ class EngineSection(ServerItemSectionTyped[EngineItem]):
 class ReplaySection(ServerItemSectionTyped[ReplayItem]):
     itemType: str = 'replay'
 
+class UserSection(ServerItemSectionTyped[UserItem]):
+    itemType: str = 'user'
+
 # Union型でServerItemSectionを定義
 ServerItemSection = Union[
     PostSection,
@@ -48,5 +52,6 @@ ServerItemSection = Union[
     EffectSection,
     ParticleSection,
     EngineSection,
-    ReplaySection
+    ReplaySection,
+    UserSection
 ]
