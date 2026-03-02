@@ -187,6 +187,10 @@ from .Response.ServerLevelResultInfo import (
 # Sonolus types module
 from . import sonolus_types
 
+from .ServerItemLeaderboardRecordList import ServerItemLeaderboardRecordList
+
+from .ServerItemLeaderboardRecordDetails import ServerItemLeaderboardRecordDetails
+
 __all__ = [
     # Base classes
     "SonolusResourceLocator",
@@ -320,7 +324,11 @@ __all__ = [
     # Sonolus types module
     "sonolus_types",
 
-    
+
     "ServerLevelResultInfo",
+
+    "ServerItemLeaderboardRecordList",
+
+    "ServerItemLeaderboardRecordDetails",
 ]
 

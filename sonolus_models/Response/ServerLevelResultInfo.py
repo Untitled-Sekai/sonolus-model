@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from ..ServerOption import ServerForm
 
 class ServerLevelResultInfo(BaseModel):
-    submits: Optional[ServerForm] = None
+    submits: Optional[List[ServerForm]] = None
